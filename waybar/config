@@ -1,0 +1,70 @@
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 28,
+    "modules-center": ["custom/menu","wlr/taskbar"],
+    "modules-right": ["battery", "network", "bluetooth", "pulseaudio", "clock", "tray"],
+    
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "tooltip-format": "{title}",
+        "on-click": "minimize-raise",
+        "on-click-middle": "close",
+    },
+    
+    "custom/menu": {
+        "format": "{icon}",
+        "format-icons": "",
+        "tooltip": "false",
+        "on-click": "rofi -show drun --allow-images --allow-markup --no-actions",
+    },
+    
+    "clock": {
+        "interval": 60,
+        "format": "{:%e %b %H:%M}",
+    },
+    
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "",
+        "format-disconnected": " ",
+        "tooltip-format": "{ifname} ({essid}): {ipaddr}",
+        "on-click": "nm-connection-editor"
+    },
+    
+    "bluetooth": {
+       "format": "{icon}",
+       "interval": 30,
+       "format-icons": {
+          "enabled": "",
+          "disabled": ""
+       },
+       "on-click": "blueman-manager",
+       "tooltip-format": "{}"
+    },
+    
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source} ",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+           "headphone": "  ",
+           "default": ["", "", ""]
+        },
+       "tooltip-format": "{icon} {volume}% {format_source}",
+       "on-click-right": "pavucontrol-qt"
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    }
+}

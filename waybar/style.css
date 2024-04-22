@@ -1,0 +1,126 @@
+@keyframes blink-warning {
+    70% {
+        color: @wm_icon_bg;
+    }
+
+    to {
+        color: @wm_icon_bg;
+        background-color: @warning_color;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @wm_icon_bg;
+    }
+
+    to {
+        color: @wm_icon_bg;
+        background-color: @error_color;
+    }
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: @theme_bg_color;
+    color: @theme_fg_color;
+    font-family: Cantarell, Noto Sans, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#battery,
+#bluetooth,
+#custom-menu,
+#network,
+#pulseaudio,
+#tray,
+#taskbar,
+#clock,
+
+#battery {
+    padding-right: 5px;
+}
+
+#battery.charging {
+    padding-right: 5px;
+}
+
+#bluetooth {
+    padding-right: 5px;
+}
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+#battery.warning {
+    color: @warning_color;
+}
+
+#battery.critical {
+    color: @error_color;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#custom-menu {
+   padding-left: 10px;
+}
+
+#network {
+   padding-right: 5px;
+}
+
+#pulseaudio {
+    padding-right: 5px;
+}
+
+#clock {
+    padding-right: 5px;
+}
+
+#taskbar button {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0 4px;
+    color: white;
+}
+
+#taskbar button.active {
+    color: white;
+    border-bottom: 3px solid #398bb6;
+}
+
+#taskbar button.minimized {
+    color: gray;
+}    
+
+#tray {
+    
+}
+
